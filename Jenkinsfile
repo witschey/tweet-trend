@@ -18,6 +18,7 @@ environment{
 
             environment{
                 scannerHome = tool 'witschey-sonar-scanner';
+                JAVA = "/usr/lib/jvm/jdk-17-oracle-x64/bin/java"
             }
             
             steps {
