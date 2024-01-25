@@ -89,6 +89,9 @@
 				<version>2.22.2</version>
 				<configuration>
 					<argLine>${argLine} -Xmx2048m</argLine>
+					<skipTests>false</skipTests>
+                			<testFailureIgnore>true</testFailureIgnore>
+                			<forkMode>once</forkMode>
 				</configuration>
 			</plugin>
 
