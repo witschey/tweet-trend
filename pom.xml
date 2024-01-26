@@ -92,7 +92,11 @@
 					<forkCount>0</forkCount>
 				</configuration>
 			</plugin>
-
+			<plugin>
+    				<groupId>org.apache.maven.plugins</groupId>
+    				<artifactId>maven-plugin-plugin</artifactId>
+    				<version>3.10.2</version>
+			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
