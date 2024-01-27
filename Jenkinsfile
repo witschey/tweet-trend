@@ -1,11 +1,11 @@
+def registry = 'https://witschey.jfrog.io'
+
 pipeline {
     agent{
       node{
           label 'maven'
       }
     } 
-
-def registry = 'https://witschey.jfrog.io'
 
 environment{
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
