@@ -5,6 +5,8 @@ pipeline {
       }
     } 
 
+def registry = 'https://witschey.jfrog.io'
+
 environment{
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
 }
@@ -48,8 +50,6 @@ environment{
             }
         }
 
-
-        def registry = 'https://witschey.jfrog.io'
         stage("Jar Publish") {
                 steps {
                     script {
