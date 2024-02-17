@@ -1,6 +1,6 @@
-def registry = 'https://witschey.jfrog.io'
+def registry = 'https://witschey01.jfrog.io'
 
-def imageName = 'witschey.jfrog.io/docker-docker-local/ttrend'
+def imageName = 'witschey01.jfrog.io/docker-docker-local/ttrend'
 def version   = '2.1.2'
 
 pipeline {
