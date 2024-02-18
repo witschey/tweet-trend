@@ -106,7 +106,7 @@ environment{
                        script{
                              command='''
                                 chmod 777 /root/jenkins/deploy.sh
-                                /root/jenkin/deploy.sh
+                                bash /root/jenkin/deploy.sh
                             ''' 
                            
                              sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml, deploy.sh')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
