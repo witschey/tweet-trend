@@ -106,10 +106,10 @@ environment{
                        script{
                              command='''
                                 chmod 777 /root/jenkins/deploy.sh
-                                /usr/local/bin/kubectl apply -f namespace.yaml
-                                /usr/local/bin/kubectl apply -f secret.yaml
-                                /usr/local/bin/kubectl apply -f deployment.yaml
-                                /usr/local/bin/kubectl apply -f service.yaml
+                                /usr/local/bin/kubectl apply -f /root/jenkins/namespace.yaml
+                                /usr/local/bin/kubectl apply -f /root/jenkins/secret.yaml
+                                /usr/local/bin/kubectl apply -f /root/jenkins/deployment.yaml
+                                /usr/local/bin/kubectl apply -f /root/jenkins/service.yaml
                             ''' 
                            
                              sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml, deploy.sh')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
