@@ -79,7 +79,7 @@ environment{
                 }   
             }
             
-            stage(" Docker Build ") {
+            stage("Docker Build") {
                 steps {
                     script {
                     echo '<--------------- Docker Build Started --------------->'
@@ -89,7 +89,7 @@ environment{
                 }
             }
 
-            stage(" Docker Publish "){
+            stage("Docker Publish"){
                     steps {
                         script {
                         echo '<--------------- Docker Publish Started --------------->'  
@@ -99,11 +99,13 @@ environment{
                         echo '<--------------- Docker Publish Ended --------------->'  
                         }
                     }
+                
            stage("Deploy"){
                     steps{
                        sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: './deploy.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml,deploy.sh')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                      }
                  }
+                
             }
        }
 }
