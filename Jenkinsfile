@@ -106,6 +106,7 @@ environment{
                        script{
                              command='''
                                 chmod 777 /root/jenkins/deploy.sh
+                                sudo root
                                 /bin/bash /root/jenkin/deploy.sh
                             ''' 
                            
