@@ -1,6 +1,6 @@
-def registry = 'https://witschey.jfrog.io'
+def registry = 'https://witschey01.jfrog.io'
 
-def imageName = 'witschey.jfrog.io/docker-docker-local/ttrend'
+def imageName = 'witschey01.jfrog.io/docker-docker-local/ttrend'
 def version   = '2.1.2'
 
 pipeline {
@@ -99,6 +99,11 @@ environment{
                         echo '<--------------- Docker Publish Ended --------------->'  
                         }
                     }
-                }
-        }
+           stage("Deploy"){
+                    steps{
+                       sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: './deploy.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml,deploy.sh')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                     }
+                 }
+            }
+       }
 }
