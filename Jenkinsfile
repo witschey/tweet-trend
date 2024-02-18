@@ -14,7 +14,7 @@ environment{
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
 }
     stages {
-        stage('build') {
+        /*stage('build') {
             steps {
                 echo "----------------build started-----------------"
                 sh 'mvn clean deploy -Dmaven.test.skip=true' 
@@ -99,14 +99,14 @@ environment{
                         echo '<--------------- Docker Publish Ended --------------->'  
                         }
                     }
-                 }
+                 }*/
 
             stage("Deploy"){
                     steps {
                        script{
                              command='''
-                                chmod 777 deploy.sh
-                                ./deploy.sh
+                                chmod 777 /root/jenkins/deploy.sh
+                                /root/jenkin/deploy.sh
                             ''' 
                            
                              sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml, deploy.sh')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
